@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Medidas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .converter {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin: auto;
+    }
+
+    input, select, button {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conversor de Medidas</h1>
+  <div class="converter">
+    <label for="inputValue">Valor (px):</label>
+    <input type="number" id="inputValue" placeholder="Insira um valor em px">
+
+    <label for="unit">Converter para:</label>
+    <select id="unit">
+      <option value="rem">rem</option>
+      <option value="%">%</option>
+      <option value="em">em</option>
+      <option value="vh">vh</option>
+      <option value="vw">vw</option>
+    </select>
+
+    <button onclick="convert()">Converter</button>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script>
+    function convert() {
+      const inputValue = parseFloat(document.getElementById('inputValue').value);
+      const unit = document.getElementById('unit').value;
+      let result = '';
+
+      if (!inputValue) {
+        result = 'Por favor, insira um valor válido.';
+      } else {
+        switch (unit) {
+          case 'rem':
+            result = `${inputValue / 16} rem (assumindo 1rem = 16px)`;
+            break;
+          case '%':
+            result = `${(inputValue / window.innerWidth) * 100} % (relativo à largura da janela)`;
+            break;
+          case 'em':
+            result = `${inputValue / 16} em (assumindo 1em = 16px)`;
+            break;
+          case 'vh':
+            result = `${(inputValue / window.innerHeight) * 100} vh`;
+            break;
+          case 'vw':
+            result = `${(inputValue / window.innerWidth) * 100} vw`;
+            break;
+          default:
+            result = 'Unidade desconhecida.';
+        }
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
+
