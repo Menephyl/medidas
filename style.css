@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #000; /* Preto para o fundo */
+    color: #8c8cf5; /* Azul escuro para o texto */
+  }
+  
+  .converter {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    background-color: #1a1a2e; /* Azul escuro para o fundo do container */
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  input, select, button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #162447; /* Azul escuro */
+    border-radius: 5px;
+    background-color: #000; /* Preto para os elementos */
+    color: #e0e0e0; /* Cor clara para o texto */
+  }
+  
+  button:hover {
+    background-color: #162447; /* Azul escuro mais intenso ao passar o mouse */
+    cursor: pointer;
+  }
+  
+  /* Media query para telas de celular */
+  @media (max-width: 768px) {
+    body {
+      margin: 10px;
+      font-size: 14px;
+    }
+  
+    .converter {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    input, select, button {
+      padding: 8px;
+    }
+  }
